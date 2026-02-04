@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MoneyRitual" representedClassName="MoneyRitual" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="frequency" optional="NO" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="intention" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="NO" attributeType="String"/>
+        <attribute name="reminderEnabled" optional="NO" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="steps" optional="NO" attributeType="String"/>
+        <attribute name="symbolIcon" optional="YES" attributeType="String"/>
+        <attribute name="symbolPhotoData" optional="YES" attributeType="Binary"/>
+        <attribute name="trigger" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isArchived" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isPaused" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="completions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RitualCompletion" inverseName="ritual" inverseEntity="RitualCompletion"/>
+    </entity>
+    <entity name="RitualCompletion" representedClassName="RitualCompletion" syncable="YES" codeGenerationType="class">
+        <attribute name="completed" optional="NO" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="date" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="reflection" optional="YES" attributeType="String"/>
+        <relationship name="ritual" optional="NO" maxCount="1" deletionRule="Nullify" destinationEntity="MoneyRitual" inverseName="completions" inverseEntity="MoneyRitual"/>
+    </entity>
+</model>
